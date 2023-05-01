@@ -4,7 +4,7 @@ import ErrorHandler from "../utils/ErrorHandler.js"
 
 export const createBin = async (req, res, next) => {
     try {
-        const { name, email, address, pin, longitude, latitude } = req.body;
+        const { name, email, address, pin } = req.body;
 
         const user = await User.findOne({ name: name, email: email })
         if (user === null) {
@@ -16,11 +16,6 @@ export const createBin = async (req, res, next) => {
             },
             address: address,
             pin: pin,
-            location: {
-                coordinates: [
-                    longitude, latitude
-                ]
-            }
         }
         const bin = await binSchema.create(binInfo);
         res.status(201).json({
