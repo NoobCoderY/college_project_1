@@ -18,17 +18,7 @@ const Schema = mongoose.Schema({
         type: String,
         required: true
     },
-    location: {
-        type: {
-            type: String,
-            enum:["point"],
-            default:"point",
-        },
-        coordinates:{
-           type:[Number],
-           required: true
-        }
-    },
+    
 
     binStatus: {
         type: String,
